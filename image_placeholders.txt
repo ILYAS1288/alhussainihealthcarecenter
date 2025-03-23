@@ -1,0 +1,11 @@
+Please add the following images to your public/images directory:
+
+1. hero1.jpg, hero2.jpg, hero3.jpg - for the hero carousel
+2. about-hospital.jpg - for the about section
+3. doctor1.jpg, doctor2.jpg, doctor3.jpg - for resident doctors
+4. consultant1.jpg, consultant2.jpg, consultant3.jpg - for visiting consultants
+5. gallery1.jpg through gallery6.jpg - for the photo gallery
+6. patient1.jpg, patient2.jpg, patient3.jpg - for testimonials
+7. favicon.ico - site favicon
+
+You can use stock photos or placeholder images for development purposes. 
