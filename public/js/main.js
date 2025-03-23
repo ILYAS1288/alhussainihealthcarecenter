@@ -17,7 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize Gallery Filters
-    initGalleryFilters();
+    function initGalleryFilters() {
+        console.log("Gallery filters initialized.");
+        // Add gallery filter logic here
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        initGalleryFilters(); // Make sure this function exists before calling it
+    });
 
     // Smooth Scrolling
     initSmoothScroll();
@@ -482,6 +489,8 @@ function initFormValidation() {
 /**
  * Initialize appointment form
  */
+
+
 function initAppointmentForm() {
     const appointmentForm = document.getElementById('appointmentForm');
     
