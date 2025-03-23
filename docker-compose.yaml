@@ -19,8 +19,8 @@ services:
     environment:
       - DEFAULT_HOST=default.local # Default host if none is found
     ports:
-      - "80:80" # HTTP
-      - "443:443" # HTTPS
+      - "80:8080" # HTTP
+      - "443:4433" # HTTPS
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
