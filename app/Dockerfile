@@ -1,6 +1,13 @@
-FROM node:18
-WORKDIR /usr/src/app
+FROM node:18-alpine
+
+WORKDIR /app
+
 COPY package*.json ./
-RUN npm install --production
+
+RUN npm install
+
 COPY . .
-CMD ["node", "server.js"]
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
