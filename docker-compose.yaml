@@ -5,12 +5,12 @@ services:
   app:
     build: ./app
     container_name: node-app
-    working_dir: /app
     volumes:
       - ./app:/app
     ports:
       - "3000:3000" # Expose the app's port to the host machine
-    command: ["npm", "start"] # Start the Node.js app
+    networks:
+      - proxy
 
   # Nginx reverse proxy
   nginx:
@@ -25,21 +25,12 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
       - app
+    networks:
+      - proxy
 
-  # Certbot to manage SSL certificates
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    depends_on:
-      - nginx
-
-  # Let's Encrypt companion to automatically request certificates
+  # Let's Encrypt companion for automatic SSL certs
   nginx-certbot:
-    image: jwilder/nginx-proxy
+    image: jrcs/letsencrypt-nginx-proxy-companion
     container_name: nginx-certbot
     environment:
       - NGINX_PROXY_CONTAINER=nginx-proxy
@@ -49,3 +40,9 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     depends_on:
       - nginx
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    driver: bridge
