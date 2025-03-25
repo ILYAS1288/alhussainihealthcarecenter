@@ -3,7 +3,7 @@
  * Version: 1.0
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
     // Initialize Hero Slider Auto Slide
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Gallery filters initialized.");
         // Add gallery filter logic here
     }
-    
+
     document.addEventListener("DOMContentLoaded", function () {
         initGalleryFilters(); // Make sure this function exists before calling it
     });
@@ -43,19 +43,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize Bootstrap tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function(tooltipTriggerEl) {
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
     });
 
     // Initialize Bootstrap popovers
     var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-    popoverTriggerList.map(function(popoverTriggerEl) {
+    popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl);
     });
 
     // Navbar scroll behavior
     const navbar = document.querySelector('.navbar');
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         if (window.scrollY > 50) {
             navbar.classList.add('navbar-scrolled');
         } else {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let counterAnimationStarted = false;
 
     if (counterSection) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (isInViewport(counterSection) && !counterAnimationStarted) {
                 counterAnimationStarted = true;
                 animateCounters();
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
 
     if (galleryFilters) {
-        galleryFilters.addEventListener('click', function(e) {
+        galleryFilters.addEventListener('click', function (e) {
             if (e.target.tagName === 'BUTTON') {
                 // Remove active class from all buttons
                 const buttons = galleryFilters.querySelectorAll('button');
@@ -137,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Back to Top Button
     const backToTopBtn = document.querySelector('.back-to-top');
-    
+
     if (backToTopBtn) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             if (window.scrollY > 300) {
                 backToTopBtn.classList.add('active');
             } else {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        backToTopBtn.addEventListener('click', function(e) {
+        backToTopBtn.addEventListener('click', function (e) {
             e.preventDefault();
             window.scrollTo({
                 top: 0,
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Smooth Scrolling for Anchor Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             if (this.getAttribute('href').length > 1) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -175,25 +175,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form Validation
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Basic validation
             let valid = true;
             const nameInput = contactForm.querySelector('input[type="text"]');
             const emailInput = contactForm.querySelector('input[type="email"]');
             const messageInput = contactForm.querySelector('textarea');
-            
+
             // Clear previous validation messages
             const errorMessages = contactForm.querySelectorAll('.text-danger');
             errorMessages.forEach(message => message.remove());
-            
+
             // Validate name
             if (!nameInput.value.trim()) {
                 valid = false;
                 showError(nameInput, 'Please enter your name');
             }
-            
+
             // Validate email
             if (!emailInput.value.trim()) {
                 valid = false;
@@ -202,13 +202,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 valid = false;
                 showError(emailInput, 'Please enter a valid email address');
             }
-            
+
             // Validate message
             if (!messageInput.value.trim()) {
                 valid = false;
                 showError(messageInput, 'Please enter your message');
             }
-            
+
             // If valid, send form or show success message
             if (valid) {
                 // Here you would typically send the form data using AJAX or fetch
@@ -222,9 +222,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Appointment Form Validation
     const appointmentForm = document.querySelector('.appointment-form');
     if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             // Basic validation - similar to contact form but with additional fields
             let valid = true;
             const nameInput = appointmentForm.querySelector('input[name="name"]');
@@ -233,17 +233,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const dateInput = appointmentForm.querySelector('input[name="date"]');
             const departmentSelect = appointmentForm.querySelector('select[name="department"]');
             const doctorSelect = appointmentForm.querySelector('select[name="doctor"]');
-            
+
             // Clear previous validation messages
             const errorMessages = appointmentForm.querySelectorAll('.text-danger');
             errorMessages.forEach(message => message.remove());
-            
+
             // Validate name
             if (!nameInput.value.trim()) {
                 valid = false;
                 showError(nameInput, 'Please enter your name');
             }
-            
+
             // Validate email
             if (!emailInput.value.trim()) {
                 valid = false;
@@ -252,31 +252,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 valid = false;
                 showError(emailInput, 'Please enter a valid email address');
             }
-            
+
             // Validate phone
             if (!phoneInput.value.trim()) {
                 valid = false;
                 showError(phoneInput, 'Please enter your phone number');
             }
-            
+
             // Validate date
             if (!dateInput.value) {
                 valid = false;
                 showError(dateInput, 'Please select a date');
             }
-            
+
             // Validate department
             if (departmentSelect.value === '') {
                 valid = false;
                 showError(departmentSelect, 'Please select a department');
             }
-            
+
             // Validate doctor
             if (doctorSelect.value === '') {
                 valid = false;
                 showError(doctorSelect, 'Please select a doctor');
             }
-            
+
             // If valid, send form or show success message
             if (valid) {
                 // Here you would typically send the form data using AJAX or fetch
@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             `;
             alertContainer.appendChild(alertDiv);
-            
+
             // Auto close after 5 seconds
             setTimeout(() => {
                 alertDiv.classList.remove('show');
@@ -327,42 +327,47 @@ document.addEventListener('DOMContentLoaded', function() {
     // Dynamic Doctor Selection based on Department
     const departmentSelect = document.querySelector('select[name="department"]');
     const doctorSelect = document.querySelector('select[name="doctor"]');
-    
+
     if (departmentSelect && doctorSelect) {
         // Sample data structure for doctors by department
+        // Doctors categorized by department
         const doctorsByDepartment = {
+            'orthopedics': [
+                { id: 1, name: 'Dr. Fida Ali' }
+            ],
             'cardiology': [
-                { id: 1, name: 'Dr. John Doe' },
-                { id: 2, name: 'Dr. Jane Smith' }
+                { id: 2, name: 'Dr. Zulfiqar Ali' }
             ],
             'neurology': [
-                { id: 3, name: 'Dr. Emily White' },
-                { id: 4, name: 'Dr. Michael Brown' }
+                { id: 3, name: 'Dr. Ishtiaq' }
             ],
-            'orthopedics': [
-                { id: 5, name: 'Dr. Sarah Green' },
-                { id: 6, name: 'Dr. David Lee' }
+            'medical-specialist': [
+                { id: 4, name: 'Dr. Raziq Ali' }
             ],
-            'pediatrics': [
-                { id: 7, name: 'Dr. Lisa Johnson' },
-                { id: 8, name: 'Dr. Robert Wilson' }
+            'urology': [
+                { id: 5, name: 'Dr. Hussain Sheer Alivi' }
             ],
-            'ent': [
-                { id: 9, name: 'Dr. Thomas Clark' },
-                { id: 10, name: 'Dr. Patricia Martin' }
+            'general-surgery': [
+                { id: 6, name: 'Dr. Shabbar Hussain Changezi' }
             ],
-            'dermatology': [
-                { id: 11, name: 'Dr. Richard Taylor' },
-                { id: 12, name: 'Dr. Jennifer Moore' }
+            'gynecology': [
+                { id: 7, name: 'Dr. Naheed Batool' }
+            ],
+            'resident-surgery': [
+                { id: 8, name: 'Dr. Muhammad Kaleem Ibad' },
+                { id: 9, name: 'Dr. Saba' }
+            ],
+            'sonology': [
+                { id: 10, name: 'Dr. Ejaz' }
             ]
         };
-        
-        departmentSelect.addEventListener('change', function() {
+
+        departmentSelect.addEventListener('change', function () {
             const department = this.value;
-            
+
             // Clear current options
             doctorSelect.innerHTML = '<option value="">Select Doctor</option>';
-            
+
             // Populate doctors based on department
             if (department && doctorsByDepartment[department]) {
                 doctorsByDepartment[department].forEach(doctor => {
@@ -371,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     option.textContent = doctor.name;
                     doctorSelect.appendChild(option);
                 });
-                
+
                 // Enable the doctor select
                 doctorSelect.disabled = false;
             } else {
@@ -383,15 +388,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Newsletter Subscription
     const newsletterForm = document.querySelector('.newsletter-form');
     if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
+        newsletterForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const emailInput = newsletterForm.querySelector('input[type="email"]');
-            
+
             // Clear previous validation messages
             const errorMessages = newsletterForm.querySelectorAll('.text-danger');
             errorMessages.forEach(message => message.remove());
-            
+
             // Validate email
             if (!emailInput.value.trim()) {
                 showError(emailInput, 'Please enter your email');
@@ -407,9 +412,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add animation classes to elements when they come into view
     const animatedElements = document.querySelectorAll('.animated');
-    
+
     if (animatedElements.length > 0) {
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             animatedElements.forEach(element => {
                 if (isInViewport(element)) {
                     element.classList.add('fadeIn');
@@ -425,16 +430,16 @@ document.addEventListener('DOMContentLoaded', function() {
 function initSmoothScroll() {
     // Select all anchor links that have a hash
     document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
                 const navbarHeight = document.querySelector('.navbar').offsetHeight;
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                
+
                 window.scrollTo({
                     top: targetPosition - navbarHeight,
                     behavior: 'smooth'
@@ -449,15 +454,15 @@ function initSmoothScroll() {
     });
 
     // Check if we need to scroll on page load (e.g., if URL contains a hash)
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
         if (window.location.hash) {
             const targetElement = document.querySelector(window.location.hash);
-            
+
             if (targetElement) {
-                setTimeout(function() {
+                setTimeout(function () {
                     const navbarHeight = document.querySelector('.navbar').offsetHeight;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
-                    
+
                     window.scrollTo({
                         top: targetPosition - navbarHeight,
                         behavior: 'smooth'
@@ -473,14 +478,14 @@ function initSmoothScroll() {
  */
 function initFormValidation() {
     const forms = document.querySelectorAll('.needs-validation');
-    
+
     forms.forEach(form => {
-        form.addEventListener('submit', function(event) {
+        form.addEventListener('submit', function (event) {
             if (!form.checkValidity()) {
                 event.preventDefault();
                 event.stopPropagation();
             }
-            
+
             form.classList.add('was-validated');
         }, false);
     });
@@ -493,20 +498,20 @@ function initFormValidation() {
 
 function initAppointmentForm() {
     const appointmentForm = document.getElementById('appointmentForm');
-    
+
     if (appointmentForm) {
-        appointmentForm.addEventListener('submit', function(e) {
+        appointmentForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (this.checkValidity()) {
                 // Collect form data
                 const formData = new FormData(this);
                 const formDataObj = {};
-                
+
                 formData.forEach((value, key) => {
                     formDataObj[key] = value;
                 });
-                
+
                 // Send form data to server
                 fetch('/api/appointments', {
                     method: 'POST',
@@ -515,20 +520,20 @@ function initAppointmentForm() {
                     },
                     body: JSON.stringify(formDataObj)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showAlert('Your appointment has been booked successfully!', 'success');
-                        appointmentForm.reset();
-                        appointmentForm.classList.remove('was-validated');
-                    } else {
-                        showAlert('Error: ' + data.message, 'danger');
-                    }
-                })
-                .catch(error => {
-                    showAlert('Error submitting form. Please try again later.', 'danger');
-                    console.error('Error:', error);
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert('Your appointment has been booked successfully!', 'success');
+                            appointmentForm.reset();
+                            appointmentForm.classList.remove('was-validated');
+                        } else {
+                            showAlert('Error: ' + data.message, 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        showAlert('Error submitting form. Please try again later.', 'danger');
+                        console.error('Error:', error);
+                    });
             } else {
                 this.classList.add('was-validated');
             }
@@ -541,20 +546,20 @@ function initAppointmentForm() {
  */
 function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
-    
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (this.checkValidity()) {
                 // Collect form data
                 const formData = new FormData(this);
                 const formDataObj = {};
-                
+
                 formData.forEach((value, key) => {
                     formDataObj[key] = value;
                 });
-                
+
                 // Send form data to server
                 fetch('/api/contact', {
                     method: 'POST',
@@ -563,19 +568,19 @@ function initContactForm() {
                     },
                     body: JSON.stringify(formDataObj)
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showAlert('Your message has been sent successfully!', 'success');
-                        contactForm.reset();
-                    } else {
-                        showAlert('Error: ' + data.message, 'danger');
-                    }
-                })
-                .catch(error => {
-                    showAlert('Error submitting form. Please try again later.', 'danger');
-                    console.error('Error:', error);
-                });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            showAlert('Your message has been sent successfully!', 'success');
+                            contactForm.reset();
+                        } else {
+                            showAlert('Error: ' + data.message, 'danger');
+                        }
+                    })
+                    .catch(error => {
+                        showAlert('Error submitting form. Please try again later.', 'danger');
+                        console.error('Error:', error);
+                    });
             } else {
                 this.classList.add('was-validated');
             }
@@ -589,11 +594,11 @@ function initContactForm() {
 function highlightActiveNavLink() {
     const currentLocation = window.location.pathname;
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-    
+
     // Set active initially based on URL
     navLinks.forEach(link => {
         link.classList.remove('active');
-        
+
         const href = link.getAttribute('href');
         if (href === currentLocation) {
             link.classList.add('active');
@@ -603,23 +608,23 @@ function highlightActiveNavLink() {
     });
 
     // Update active state on scroll
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         // Don't run this on pages other than the home page
         if (currentLocation !== '/') return;
 
         // Find which section is currently visible in the viewport
         const scrollPosition = window.scrollY + document.querySelector('.navbar').offsetHeight + 50;
-        
+
         // Get all sections that have IDs matching our navigation
         const sections = document.querySelectorAll('section[id]');
-        
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.offsetHeight;
-            
+
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 const targetId = '#' + section.getAttribute('id');
-                
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === targetId) {
