@@ -60,7 +60,7 @@ app.post('/book-appointment', async (req, res) => {
     
     const mailOptions = {
         from: process.env.EMAIL_USER,
-        to: 'alhussainihealthcc@gmail.com',
+        to: 'elibubalteen@gmail.com',
         subject: 'New Appointment Booking',
         text: `
         New appointment booking:
