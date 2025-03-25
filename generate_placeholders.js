@@ -42,9 +42,9 @@ function downloadImage(url, filepath) {
 // Generate placeholders using placehold.co or placekitten.com
 async function generatePlaceholders() {
     // Hero images
-    await downloadImage('https://placekitten.com/1920/800', path.join(imagesDir, 'hero1.jpg'));
-    await downloadImage('https://placekitten.com/1920/801', path.join(imagesDir, 'hero2.jpg'));
-    await downloadImage('https://placekitten.com/1920/802', path.join(imagesDir, 'hero3.jpg'));
+    await downloadImage('https://placekitten.com/1920/800', path.join(imagesDir, 'hero4.jpg'));
+    await downloadImage('https://placekitten.com/1920/801', path.join(imagesDir, 'hero5.jpg'));
+    await downloadImage('https://placekitten.com/1920/802', path.join(imagesDir, 'hero6.jpg'));
     
     // About hospital image
     await downloadImage('https://placekitten.com/600/400', path.join(imagesDir, 'about-hospital.jpg'));
