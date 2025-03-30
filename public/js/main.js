@@ -359,7 +359,8 @@ document.addEventListener('DOMContentLoaded', function () {
             ],
             'sonology': [
                 { id: 10, name: 'Dr. Ejaz' }
-            ]
+            ],
+            
         };
 
         departmentSelect.addEventListener('change', function () {
